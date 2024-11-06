@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  auth_service:
+    build: ./services/auth_service
+    ports:
+      - "5001:5000"
+    environment:
+      - SECRET_KEY=${SECRET_KEY}
+      - TIKTOK_CLIENT_KEY=${TIKTOK_CLIENT_KEY}
+  
+  content_discovery:
+    build: ./services/content_discovery
+    ports:
+      - "5002:5000"
+  
+  live_streaming:
+    build: ./services/live_streaming
+    ports:
+      - "5003:5000"
+  
+  social_chat:
+    build: ./services/social_chat
+    ports:
+      - "5004:5000"
